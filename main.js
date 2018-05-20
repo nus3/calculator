@@ -20,16 +20,20 @@ class Calculator
     }
 
     static setInputedNumber(number) {
-        number = String(number)
-        if (number.length >= 10) {
-            Calculator.clear()
-            number = 'error'
+        let num = String(number)
+        if (num.length >= 10) {
+            num = Number(num).toFixed(5)
+            num = String(num)
+            if (num.length >= 10) {
+                Calculator.clear()
+                number = 'error'
+            }
         }
 
         if (number == 'null') {
             document.getElementById('calculator__value').innerText = ''
         }else {
-            document.getElementById('calculator__value').innerText = number
+            document.getElementById('calculator__value').innerText = num
         }
     }
 
@@ -118,8 +122,8 @@ class Calculator
 
             _calcuGlobalObj.inputedObj.numbers = []
             _calcuGlobalObj.inputedObj.operators = []
-            Calculator.setNumber(eval(formula).toFixed(5))
-            Calculator.setInputedNumber(eval(formula).toFixed(5))
+            Calculator.setNumber(eval(formula))
+            Calculator.setInputedNumber(eval(formula))
         }
     }
 }
