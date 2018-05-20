@@ -66,7 +66,8 @@ class Calculator
 
     changeSign() {
         if (_calcuGlobalObj.number) {
-            if (_calcuGlobalObj.number.indexOf('-') == 0) {
+            const number = String(_calcuGlobalObj.number)
+            if (number.indexOf('-') == 0) {
                 _calcuGlobalObj.number = _calcuGlobalObj.number.replace('-', '')    
             }else {
                 _calcuGlobalObj.number = `-${_calcuGlobalObj.number}`
@@ -82,7 +83,8 @@ class Calculator
             Calculator.setNumber('0')
         }
 
-        if (_calcuGlobalObj.number.indexOf('.') >= 0) {
+        const number = String(_calcuGlobalObj.number)
+        if (number.indexOf('.') >= 0) {
             
         }else {
             _calcuGlobalObj.number = `${_calcuGlobalObj.number}.`
@@ -104,7 +106,7 @@ class Calculator
     }
 
     calculateNumber() {
-        if (_calcuGlobalObj.inputedObj.numbers) {
+        if (_calcuGlobalObj.inputedObj.numbers[0]) {
             let formula = ''
             _calcuGlobalObj.inputedObj.numbers.forEach((num, i) => {
                 formula += `${num} ${_calcuGlobalObj.inputedObj.operators[i]}`
