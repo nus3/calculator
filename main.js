@@ -8,20 +8,39 @@ var _calcuGlobalObj = {
 
 class Calculator
 {
-    pushNumber(inputedNumber) {
-        if (_calcuGlobalObj.number.length < 9) {
-            _calcuGlobalObj.number += inputedNumber
-        }
-        document.getElementById('calculator__value').innerText = _calcuGlobalObj.number
-    }
-
     static clear() {
         _calcuGlobalObj.totalNumber =''
         _calcuGlobalObj.numbers = []
         _calcuGlobalObj.number = ''
         _calcuGlobalObj.Operators = []
 
-        document.getElementById('calculator__value').innerText = 0
+        Calculator.setNumber(0)
+    }
+
+    static setNumber(number) {
+        document.getElementById('calculator__value').innerText = number
+    }
+
+    static setTotalNumber() {
+        _calcuGlobalObj.totalNumber = _calcuGlobalObj.number
+    }
+
+    pushNumber(inputedNumber) {
+        if (_calcuGlobalObj.totalNumber) {
+            Calculator.clear()
+        }
+        if (_calcuGlobalObj.number.length < 9) {
+            _calcuGlobalObj.number += inputedNumber
+        }
+        Calculator.setNumber(_calcuGlobalObj.number)
+    }
+
+    percentNumber() {
+        if (_calcuGlobalObj.number) {
+            _calcuGlobalObj.number *= 0.01           
+        }
+        Calculator.setNumber(_calcuGlobalObj.number)
+        Calculator.setTotalNumber()        
     }
 }
 
@@ -32,6 +51,11 @@ const clearInputed = () => {
 const pushNumberInputed = () => {
     const calcu = new Calculator()
     calcu.pushNumber(event.target.innerText)
+}
+
+const percentNumberInputed = () => {
+    const calcu = new Calculator()
+    calcu.percentNumber()
 }
 
 
