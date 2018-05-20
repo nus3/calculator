@@ -13,6 +13,20 @@ body {
     background-color: #FCECD5;
 }
 
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0em;
+}
+
+sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+}
+
 .container {
     display: block;
     width: 100%;
@@ -30,7 +44,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width:  250px;
+    flex-wrap: wrap;
+    width:  255px;
     height: 300px;
     max-height: 500px;
     background-color: #89837B;
@@ -53,9 +68,55 @@ body {
     padding: 0 10px;
     border: 0;
     margin: 28px 0 0 0;
+}
 
+.caluclator__btns {
+    display: flex;
+    flex-direction: column;
+    width: inherit;
+}
+
+.caluclator__row {
+    display: flex;
+    justify-content: space-between;
+    height: 40px;
+    padding-top: 1px;
 }
 
 .caluclator__btn {
-    font-family: 'Quicksand', sans-serif;
+    width: 63px;
+    background-color: #E0E0E0;
+    font-size: 20px;
+    font-family: "HelveticaNeue-Light", "Helvetica Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    border: 0;
+    cursor: pointer;
 }
+
+.caluclator__btn:active {
+    background: rgba(224, 224, 224, 0.5)
+}
+
+.orange {
+    background-color: #F09136;
+    color: white;
+}
+
+.orange:active {
+    background-color: rgba(240, 145, 54, 0.4)
+}
+
+.gray {
+    background-color: rgb(211, 209, 209);
+}
+
+.gray:active {
+    background-color: rgba(211, 209, 209, 0.5)
+}
+
+.caluclator__btn--big {
+    width: 127px;
+    text-align: left;
+    padding-left: 20px;
+}
+
+
