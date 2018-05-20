@@ -34,9 +34,13 @@ class Calculator
             Calculator.clear()
         }
         if (_calcuGlobalObj.number.length < 9) {
-            _calcuGlobalObj.number += inputedNumber
+            if (inputedNumber == 0 && !_calcuGlobalObj.number) {
+
+            }else {
+                _calcuGlobalObj.number += inputedNumber
+                Calculator.setInputedNumber(_calcuGlobalObj.number)
+            }
         }
-        Calculator.setInputedNumber(_calcuGlobalObj.number)
     }
 
     percentNumber() {
@@ -59,6 +63,20 @@ class Calculator
             Calculator.setNumber(_calcuGlobalObj.number)
         }
     }
+
+    addDecimalPoint() {
+        if (!_calcuGlobalObj.number) {
+            Calculator.setNumber('0')
+        }
+
+        if (_calcuGlobalObj.number.indexOf('.') >= 0) {
+            
+        }else {
+            _calcuGlobalObj.number = `${_calcuGlobalObj.number}.`
+        }
+        Calculator.setInputedNumber(_calcuGlobalObj.number)
+        Calculator.setNumber(_calcuGlobalObj.number)
+    }
 }
 
 const clearInputed = () => {
@@ -80,7 +98,10 @@ const changeSignInputed = () => {
     calcu.changeSign()
 }
 
-
+const addDecimalPointInputed = () => {
+    const calcu = new Calculator()
+    calcu.addDecimalPoint()
+}
 
 
 
