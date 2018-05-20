@@ -18,6 +18,12 @@ class Calculator
     }
 
     static setInputedNumber(number) {
+        number = String(number)
+        if (number.length >= 10) {
+            Calculator.clear()
+            number = 'error'
+        }
+
         document.getElementById('calculator__value').innerText = number
     }
 
@@ -46,6 +52,7 @@ class Calculator
     percentNumber() {
         if (_calcuGlobalObj.number) {
             _calcuGlobalObj.number *= 0.01
+            _calcuGlobalObj.number = _calcuGlobalObj.number.toFixed(5)
             Calculator.setInputedNumber(_calcuGlobalObj.number)
             Calculator.setTotalNumber()
         }        
@@ -77,6 +84,7 @@ class Calculator
         Calculator.setInputedNumber(_calcuGlobalObj.number)
         Calculator.setNumber(_calcuGlobalObj.number)
     }
+
 }
 
 const clearInputed = () => {
