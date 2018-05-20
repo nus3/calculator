@@ -11,41 +11,41 @@
 <body>
     <div class="container">
         <main class="wrapper">
-            <div class="caluclator">
-                <input id="caluclator__value" class="caluclator__value" type="readonly" disabled value="0">
-                <div class="caluclator__btns">
-                    <div class="caluclator__row">
-                        <button class="caluclator__btn gray">C</button>
-                        <button class="caluclator__btn gray">
+            <div class="calculator">
+                <p id="calculator__value" class="calculator__value">0</p>
+                <div class="calculator__btns">
+                    <div class="calculator__row">
+                        <button class="calculator__btn gray" onclick="clearInputed()">C</button>
+                        <button class="calculator__btn gray">
                             <sup>+</sup>
                             /
                             <sub>-</sub>
                         </button>
-                        <button class="caluclator__btn gray">%</button>
-                        <button class="caluclator__btn orange">÷</button>
+                        <button class="calculator__btn gray">%</button>
+                        <button class="calculator__btn orange">÷</button>
                     </div>
-                    <div class="caluclator__row">
-                        <button class="caluclator__btn">7</button>
-                        <button class="caluclator__btn">8</button>
-                        <button class="caluclator__btn">9</button>
-                        <button class="caluclator__btn orange">×</button>
+                    <div class="calculator__row">
+                        <button class="calculator__btn" onclick="pushNumberInputed()">7</button>
+                        <button class="calculator__btn" onclick="pushNumberInputed()">8</button>
+                        <button class="calculator__btn" onclick="pushNumberInputed()">9</button>
+                        <button class="calculator__btn orange">×</button>
                     </div>
-                    <div class="caluclator__row">
-                        <button class="caluclator__btn">4</button>
-                        <button class="caluclator__btn">5</button>
-                        <button class="caluclator__btn">6</button>
-                        <button class="caluclator__btn orange">-</button>
+                    <div class="calculator__row">
+                        <button class="calculator__btn" onclick="pushNumberInputed()">4</button>
+                        <button class="calculator__btn" onclick="pushNumberInputed()">5</button>
+                        <button class="calculator__btn" onclick="pushNumberInputed()">6</button>
+                        <button class="calculator__btn orange">-</button>
                     </div>
-                    <div class="caluclator__row">
-                        <button class="caluclator__btn">1</button>
-                        <button class="caluclator__btn">2</button>
-                        <button class="caluclator__btn">3</button>
-                        <button class="caluclator__btn orange">+</button>
+                    <div class="calculator__row">
+                        <button class="calculator__btn" onclick="pushNumberInputed()">1</button>
+                        <button class="calculator__btn" onclick="pushNumberInputed()">2</button>
+                        <button class="calculator__btn" onclick="pushNumberInputed()">3</button>
+                        <button class="calculator__btn orange">+</button>
                     </div>
-                    <div class="caluclator__row">
-                        <button class="caluclator__btn caluclator__btn--big">0</button>
-                        <button class="caluclator__btn">.</button>
-                        <button class="caluclator__btn orange">=</button>
+                    <div class="calculator__row">
+                        <button class="calculator__btn calculator__btn--big">0</button>
+                        <button class="calculator__btn">.</button>
+                        <button class="calculator__btn orange">=</button>
                     </div>
                 </div>
             </div>
