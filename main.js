@@ -118,9 +118,8 @@ class Calculator
 
             _calcuGlobalObj.inputedObj.numbers = []
             _calcuGlobalObj.inputedObj.operators = []
-            // _calcuGlobalObj.totalNumber = eval(formula)
-            Calculator.setNumber(eval(formula))
-            Calculator.setInputedNumber(eval(formula))
+            Calculator.setNumber(eval(formula).toFixed(5))
+            Calculator.setInputedNumber(eval(formula).toFixed(5))
         }
     }
 }
