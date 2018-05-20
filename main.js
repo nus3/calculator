@@ -1,18 +1,20 @@
 
 var _calcuGlobalObj = {
     totalNumber: '',
-    numbers: [],
     number: '',
-    Operators: [],
+    inputedObj: {
+        numbers: [],
+        operators: [],
+    }
 }
 
 class Calculator
 {
     static clear() {
         _calcuGlobalObj.totalNumber =''
-        _calcuGlobalObj.numbers = []
         _calcuGlobalObj.number = ''
-        _calcuGlobalObj.Operators = []
+        _calcuGlobalObj.inputedObj.numbers = []
+        _calcuGlobalObj.inputedObj.operators = []
 
         Calculator.setInputedNumber(0)
     }
@@ -24,7 +26,11 @@ class Calculator
             number = 'error'
         }
 
-        document.getElementById('calculator__value').innerText = number
+        if (number == 'null') {
+            document.getElementById('calculator__value').innerText = ''
+        }else {
+            document.getElementById('calculator__value').innerText = number
+        }
     }
 
     static setTotalNumber() {
@@ -85,6 +91,36 @@ class Calculator
         Calculator.setNumber(_calcuGlobalObj.number)
     }
 
+    addNumber(operator) {
+        if (_calcuGlobalObj.inputedObj.numbers) {
+            this.calculateNumber()
+        }
+
+        if (_calcuGlobalObj.number) {
+            _calcuGlobalObj.inputedObj.numbers.push(_calcuGlobalObj.number)
+            _calcuGlobalObj.number = ''
+            _calcuGlobalObj.inputedObj.operators.push(operator)
+        }
+    }
+
+    calculateNumber() {
+        if (_calcuGlobalObj.inputedObj.numbers) {
+            let formula = ''
+            _calcuGlobalObj.inputedObj.numbers.forEach((num, i) => {
+                formula += `${num} ${_calcuGlobalObj.inputedObj.operators[i]}`
+            })
+
+            if (_calcuGlobalObj.number) {
+                formula += _calcuGlobalObj.number
+            }
+
+            _calcuGlobalObj.inputedObj.numbers = []
+            _calcuGlobalObj.inputedObj.operators = []
+            // _calcuGlobalObj.totalNumber = eval(formula)
+            Calculator.setNumber(eval(formula))
+            Calculator.setInputedNumber(eval(formula))
+        }
+    }
 }
 
 const clearInputed = () => {
@@ -111,12 +147,24 @@ const addDecimalPointInputed = () => {
     calcu.addDecimalPoint()
 }
 
+const addNumberInputed = () => {
+    let operator = ''
+    if (event.target.innerText == '÷') {
+        operator = '/'
+    }else if(event.target.innerText == '×') {
+        operator = '*'
+    }else {
+        operator = event.target.innerText
+    }
 
+    const calcu = new Calculator()
+    calcu.addNumber(operator)
+}
 
-
-
-
-
+const calculateNumberInputed = () => {
+    const calcu = new Calculator()
+    calcu.calculateNumber()
+}
 
 
 
