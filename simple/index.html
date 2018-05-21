@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>シンプル電卓</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <p id="inputed" class="inputed">0</p>
+    <div class="btns">
+        <div class="row">
+            <button class="btn" onclick="pushNumber()">9</button>
+            <button class="btn" onclick="pushNumber()">8</button>
+            <button class="btn" onclick="pushNumber()">7</button>
+        </div>
+        <div class="row">
+            <button class="btn" onclick="pushNumber()">6</button>
+            <button class="btn" onclick="pushNumber()">5</button>
+            <button class="btn" onclick="pushNumber()">4</button>
+        </div>
+        <div class="row">
+            <button class="btn" onclick="pushNumber()">3</button>
+            <button class="btn" onclick="pushNumber()">2</button>
+            <button class="btn" onclick="pushNumber()">1</button>
+        </div>
+        <div class="row">
+            <button class="btn" onclick="pushNumber()">0</button>
+            <button class="btn" onclick="addNumber()">+</button>
+            <button class="btn" onclick="caluclateNumber()">=</button>
+        </div>
+        <button class="clear" onclick="clearNumber()">クリア</button>
+    </div>
+    <script src="./main.js"></script>
+</body>
+</html>
