@@ -1,29 +1,34 @@
 
-var _inputGlobalNumber = ''
-var _inputedGlobalNumber = ''
+var _currentGlobalNumber = '0'
+var _previousGlobalNumber = '0'
 
+function changeResult(number) {
+    document.getElementById('inputed').innerText = number
+}
+
+function clearResult(){
+    document.getElementById('inputed').innerText = ''
+}
 
 function pushNumber() {
-    document.getElementById('inputed').innerText = ''
-
     const num = event.target.innerText
-    document.getElementById('inputed').innerText = num
-    _inputGlobalNumber = num
+    changeResult(num)
+    _currentGlobalNumber = num
 }
 
 function clearNumber() {
-    document.getElementById('inputed').innerText = '0'
-    _inputGlobalNumber = ''
-    _inputedGlobalNumber = ''
+    clearResult()
+    _currentGlobalNumber = '0'
+    _previousGlobalNumber = '0'
 }
 
 function addNumber() {
-    _inputedGlobalNumber = document.getElementById('inputed').innerText
+    _previousGlobalNumber = document.getElementById('inputed').innerText
 }
 
 function caluclateNumber() {
-    const calucNum = eval(`${_inputGlobalNumber} + ${_inputedGlobalNumber}`)
-    document.getElementById('inputed').innerText = calucNum
-    _inputGlobalNumber = ''
-    _inputedGlobalNumber = ''
+    const calucNum = eval(`${_currentGlobalNumber} + ${_previousGlobalNumber}`)
+    changeResult(calucNum)
+    _currentGlobalNumber = '0'
+    _previousGlobalNumber = '0'
 }
