@@ -26,7 +26,7 @@ class Calculator
             num = String(num)
             if (num.length >= 10) {
                 Calculator.clear()
-                number = 'error'
+                num = 'error'
             }
         }
 
